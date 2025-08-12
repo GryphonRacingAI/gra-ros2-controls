@@ -1,14 +1,14 @@
-## common_msgs
+# common_msgs
 Standardized message types for communication between modules.
 
-### Types
+## Types
 Messages: 
 - `msg/Cone.msg`
 - `msg/ConeArray.msg`
 
-### Message Specifications
+## Message Specifications
 
-#### Cone.msg
+### Cone.msg
 | Field | Type |
 |-------|------|
 | `position` | `geometry_msgs/Point` |
@@ -23,7 +23,9 @@ Messages:
 | `3` | `ORANGE` |
 | `4` | `LARGE_ORANGE` |
 
-#### ConeArray.msg
+---
+
+### ConeArray.msg
 | Field | Type |
 |-------|------|
 | `header` | `std_msgs/Header` |
@@ -33,21 +35,23 @@ Messages:
 | `orange_cones` | `common_msgs/Cone[]` |
 | `large_orange_cones` | `common_msgs/Cone[]` |
 
-### Usage
-- Python:
-  ```python
-  from common_msgs.msg import Cone
-  from common_msgs.msg import ConeArray
-  ```
+
+## Usage
 - C++:
   ```cpp
   #include <common_msgs/msg/cone.hpp>
   #include <common_msgs/msg/cone_array.hpp>
   ```
 
+- Python:
+  ```python
+  from common_msgs.msg import Cone
+  from common_msgs.msg import ConeArray
+  ```
+
 - Add to dependencies (package.xml/CMake) as usual.
 
-#### C++ Example
+### C++ Example
 ```cpp
 #include <common_msgs/msg/cone.hpp>
 
