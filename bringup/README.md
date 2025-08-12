@@ -47,10 +47,10 @@ Refer to the individual config files for detailed parameter descriptions and def
 
 ## Sensors
 
-| Sensor | Model | Datasheet | Notes |
-|--------|-------|-----------|-------|
-| ZED 2i | 4mm (with polarizer) | [ZED 2i Datasheet](https://cdn.sanity.io/files/s18ewfw4/staging/c059860f8fe49f3856f6b8da770eb13cc543ac2c.pdf/ZED%202i%20Datasheet%20v1.2.pdf) | Main stereo camera for perception |
-| VLP-16 | Hi-Res | [VLP-16 Hi-Res Datasheet](https://www.mapix.com/wp-content/uploads/2018/07/63-9318_Rev-E_Puck-Hi-Res_Datasheet_Web.pdf) | High-resolution LiDAR sensor |
+| Sensor | Model | Datasheet |
+|--------|-------|-----------|
+| Stereo Camera | ZED 2i 4mm (with polarizer) | [ZED 2i Datasheet](https://cdn.sanity.io/files/s18ewfw4/staging/c059860f8fe49f3856f6b8da770eb13cc543ac2c.pdf/ZED%202i%20Datasheet%20v1.2.pdf) |
+| LiDAR | VLP-16 Hi-Res | [VLP-16 Hi-Res Datasheet](https://www.mapix.com/wp-content/uploads/2018/07/63-9318_Rev-E_Puck-Hi-Res_Datasheet_Web.pdf) |
 
 
 
