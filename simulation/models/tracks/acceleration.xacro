@@ -79,55 +79,65 @@
 
     <xacro:include filename="$(find simulation)/models/cones/cone.sdf.xacro"/>
 
-    <xacro:cone name="blue_1" type="blue" pose="-45 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_2" type="blue" pose="-40 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_3" type="blue" pose="-35 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_4" type="blue" pose="-30 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_5" type="blue" pose="-25 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_6" type="blue" pose="-20 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_7" type="blue" pose="-15 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_8" type="blue" pose="-10 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_9" type="blue" pose="-5 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_10" type="blue" pose="0 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_11" type="blue" pose="5 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_12" type="blue" pose="10 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_13" type="blue" pose="15 1.5 0.15 0 0 0"/>
-    <xacro:cone name="blue_14" type="blue" pose="20 1.5 0.15 0 0 0"/>
+    <model name='cones'>
+      <xacro:cone name="blue_1" type="blue" pose="-45 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_2" type="blue" pose="-40 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_3" type="blue" pose="-35 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_4" type="blue" pose="-30 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_5" type="blue" pose="-25 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_6" type="blue" pose="-20 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_7" type="blue" pose="-15 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_8" type="blue" pose="-10 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_9" type="blue" pose="-5 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_10" type="blue" pose="0 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_11" type="blue" pose="5 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_12" type="blue" pose="10 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_13" type="blue" pose="15 1.5 0.15 0 0 0"/>
+      <xacro:cone name="blue_14" type="blue" pose="20 1.5 0.15 0 0 0"/>
 
-    <xacro:cone name="yellow_1" type="yellow" pose="-45 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_2" type="yellow" pose="-40 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_3" type="yellow" pose="-35 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_4" type="yellow" pose="-30 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_5" type="yellow" pose="-25 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_6" type="yellow" pose="-20 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_7" type="yellow" pose="-15 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_8" type="yellow" pose="-10 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_9" type="yellow" pose="-5 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_10" type="yellow" pose="0 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_11" type="yellow" pose="5 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_12" type="yellow" pose="10 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_13" type="yellow" pose="15 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="yellow_14" type="yellow" pose="20 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_1" type="yellow" pose="-45 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_2" type="yellow" pose="-40 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_3" type="yellow" pose="-35 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_4" type="yellow" pose="-30 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_5" type="yellow" pose="-25 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_6" type="yellow" pose="-20 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_7" type="yellow" pose="-15 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_8" type="yellow" pose="-10 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_9" type="yellow" pose="-5 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_10" type="yellow" pose="0 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_11" type="yellow" pose="5 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_12" type="yellow" pose="10 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_13" type="yellow" pose="15 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="yellow_14" type="yellow" pose="20 -1.5 0.15 0 0 0"/>
 
-    <xacro:cone name="orange_1" type="orange" pose="30 1.5 0.15 0 0 0"/>
-    <xacro:cone name="orange_2" type="orange" pose="30 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="orange_3" type="orange" pose="35 1.5 0.15 0 0 0"/>
-    <xacro:cone name="orange_4" type="orange" pose="35 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="orange_5" type="orange" pose="40 1.5 0.15 0 0 0"/>
-    <xacro:cone name="orange_6" type="orange" pose="40 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="orange_7" type="orange" pose="45 1.5 0.15 0 0 0"/>
-    <xacro:cone name="orange_8" type="orange" pose="45 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="orange_9" type="orange" pose="50 1.5 0.15 0 0 0"/>
-    <xacro:cone name="orange_10" type="orange" pose="50 -1.5 0.15 0 0 0"/>
-    <xacro:cone name="orange_11" type="orange" pose="50 0.75 0.15 0 0 0"/>
-    <xacro:cone name="orange_12" type="orange" pose="50 -0.75 0.15 0 0 0"/>
+      <xacro:cone name="orange_1" type="orange" pose="30 1.5 0.15 0 0 0"/>
+      <xacro:cone name="orange_2" type="orange" pose="30 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="orange_3" type="orange" pose="35 1.5 0.15 0 0 0"/>
+      <xacro:cone name="orange_4" type="orange" pose="35 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="orange_5" type="orange" pose="40 1.5 0.15 0 0 0"/>
+      <xacro:cone name="orange_6" type="orange" pose="40 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="orange_7" type="orange" pose="45 1.5 0.15 0 0 0"/>
+      <xacro:cone name="orange_8" type="orange" pose="45 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="orange_9" type="orange" pose="50 1.5 0.15 0 0 0"/>
+      <xacro:cone name="orange_10" type="orange" pose="50 -1.5 0.15 0 0 0"/>
+      <xacro:cone name="orange_11" type="orange" pose="50 0.75 0.15 0 0 0"/>
+      <xacro:cone name="orange_12" type="orange" pose="50 -0.75 0.15 0 0 0"/>
 
-    <xacro:cone name="large_orange_1" type="large_orange" pose="-50 1.5 0.033 0 0 0"/>
-    <xacro:cone name="large_orange_2" type="large_orange" pose="-50 -1.5 0.033 0 0 0"/>
-    <xacro:cone name="large_orange_3" type="large_orange" pose="-50.5 1.5 0.033 0 0 0"/>
-    <xacro:cone name="large_orange_4" type="large_orange" pose="-50.5 -1.5 0.033 0 0 0"/>
-    <xacro:cone name="large_orange_5" type="large_orange" pose="25 1.5 0.033 0 0 0"/>
-    <xacro:cone name="large_orange_6" type="large_orange" pose="25 -1.5 0.033 0 0 0"/>
+      <xacro:cone name="large_orange_1" type="large_orange" pose="-50 1.5 0.033 0 0 0"/>
+      <xacro:cone name="large_orange_2" type="large_orange" pose="-50 -1.5 0.033 0 0 0"/>
+      <xacro:cone name="large_orange_3" type="large_orange" pose="-50.5 1.5 0.033 0 0 0"/>
+      <xacro:cone name="large_orange_4" type="large_orange" pose="-50.5 -1.5 0.033 0 0 0"/>
+      <xacro:cone name="large_orange_5" type="large_orange" pose="25 1.5 0.033 0 0 0"/>
+      <xacro:cone name="large_orange_6" type="large_orange" pose="25 -1.5 0.033 0 0 0"/>
+
+      <plugin name="gz::sim::systems::PosePublisher" filename="gz-sim-pose-publisher-system">
+          <use_pose_vector_msg>true</use_pose_vector_msg>
+          <publish_model_pose>true</publish_model_pose>
+          <publish_nested_model_pose>true</publish_nested_model_pose>
+          <publish_link_pose>false</publish_link_pose>
+      </plugin>
+
+    </model>
 
   </world>
 </sdf>
