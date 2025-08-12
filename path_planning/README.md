@@ -24,6 +24,6 @@ The following parameters are provided for `pathfinder.py`:
 
 ## Interface
 
-| Node | Description | Inputs | Outputs |
+| Node | Inputs | Outputs | Description |
 |------|-------------|---------|---------|
-| `pathfinder.py` | Processes the track cone map and the vehicle pose to generate the centreline for different dynamic events | `/track_map` (`common_msgs/ConeArray`)<br>`/odom` (`nav_msgs/Odometry`) | `/path` (`nav_msgs/Path`) |
+| `pathfinder.py` | `/track_map` (`common_msgs/ConeArray`)<br>`/odom` (`nav_msgs/Odometry`) | `/path` (`nav_msgs/Path`) | Processes the track cone map and the vehicle pose to generate the centreline for different dynamic events |
