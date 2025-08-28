@@ -60,7 +60,7 @@ private:
       if (is_new_cone(id)) {
         geometry_msgs::msg::TransformStamped tf_map_to_cone;
         try {
-          tf_map_to_cone = tf_buffer_.lookupTransform("map", id, msg->header.stamp, rclcpp::Duration::from_seconds(0.1));
+          tf_map_to_cone = tf_buffer_.lookupTransform("map","cones/" + id, msg->header.stamp, rclcpp::Duration::from_seconds(0.1));
         } catch (const tf2::TransformException &ex) {
           RCLCPP_WARN(this->get_logger(), "Could not transform map to %s: %s", id.c_str(), ex.what());
           continue;
@@ -144,7 +144,7 @@ private:
     rclcpp::Time current_time = this->get_clock()->now();
 
     try {
-      current_transform = tf_buffer_.lookupTransform("odom", "base_link", current_time, rclcpp::Duration::from_seconds(0.05));
+      current_transform = tf_buffer_.lookupTransform("map", "base_link", current_time, rclcpp::Duration::from_seconds(0.05));
     } catch (tf2::TransformException &ex) {
       RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 2000, "TF lookup failed: %s", ex.what());
       return;
