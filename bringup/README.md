@@ -24,7 +24,7 @@ If you are running any of the NEURAL depth modes on a new device, optimization w
   - `zed2i.yaml` - ZED 2i specific parameters
 
 ### VLP-16 Configuration
-**IMPORTANT:** Use `VLP_hires_db.yaml` instead of `VLP16_db.yaml` in the calibration params in `velodyne/launch/velodyne-all-nodes-VLP16-launch.py` since we are using the VLP-16 Hi-Res, which has a narrower VFOV. Otherwise, the LiDAR point cloud would appear angularly stretched vertically compared to the ZED 2i's point cloud, even when perfectly aligned.
+**IMPORTANT:** Use `VLP_hires_db.yaml` instead of `VLP16db.yaml` in the calibration params in `velodyne/launch/velodyne-all-nodes-VLP16-launch.py` since we are using the VLP-16 Hi-Res, which has a narrower VFOV. Otherwise, the LiDAR point cloud would appear angularly stretched vertically compared to the ZED 2i's point cloud, even when perfectly aligned.
 
 - **Config files location:** `velodyne_driver/config/`
   - `VLP16-velodyne_driver_node-params.yaml` - Driver parameters
