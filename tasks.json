@@ -1,0 +1,81 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ROS2 Simulation (skidpad)",
+      "type": "shell",
+      "command": "apptainer exec --nv --bind /run /local/data/el23tc/ros_jazzy.sif bash -c 'cd /local/data/el23tc/colcon_ws && export GZ_SIM_RESOURCE_PATH=${cwd}/install/simulation/share/ && source install/setup.bash && exec ros2 launch simulation dynamic_event.launch.py autostart:=true event:=skidpad'",
+      "presentation": {
+        "panel": "new"
+      }
+    },
+    {
+      "label": "rviz2",
+      "type": "shell",
+      "command": "apptainer exec --nv --bind /run /local/data/el23tc/ros_jazzy.sif bash -c 'cd /local/data/el23tc/colcon_ws && source install/setup.bash && exec rviz2 -d ${cwd}/src/rviz_config.rviz'",
+      "presentation": {
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Perception",
+      "type": "shell",
+      "command": "cd /local/data/el23tc && apptainer exec --nv --bind /run /local/data/el23tc/ros_jazzy.sif bash -c \"cd /local/data/el23tc && source virtual_env/bin/activate && command -v python && cd /local/data/el23tc/colcon_ws && source install/setup.bash && exec ros2 launch ultralytics_ros predict_with_cloud.launch.xml use_sim_time:=true yolo_model:=conev11n.pt input_topic:=/zed2i/depth_camera/image \"",
+      "presentation": {
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Pathfinder",
+      "type": "shell",
+      "command": "cd /local/data/el23tc && apptainer exec --nv --bind /run /local/data/el23tc/ros_jazzy.sif bash -c \"cd /local/data/el23tc && source virtual_env/bin/activate && command -v python && cd /local/data/el23tc/colcon_ws && source install/setup.bash && exec ros2 run path_planning pathfinder.py --ros-args -p event:=skidpad  --remap /track_map:=/perfect_cone_map  \"",
+      "presentation": {
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Perfect SLAM",
+      "type": "shell",
+      "command": "apptainer exec --nv --bind /run /local/data/el23tc/ros_jazzy.sif bash -c 'cd /local/data/el23tc/colcon_ws && source install/setup.bash && exec ros2 run simulation perfect_slam_node'",
+      "presentation": {
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Pure_pursuit",
+      "type": "shell",
+      "command": "apptainer exec --nv --bind /run /local/data/el23tc/ros_jazzy.sif bash -c 'cd /local/data/el23tc/colcon_ws && source install/setup.bash && exec ros2 run control pure_pursuit.py'",
+      "presentation": {
+        "panel": "new"
+      }
+    },
+    {
+      "label": "ackerman_to_cmdvel",
+      "type": "shell",
+      "command": "apptainer exec --nv --bind /run /local/data/el23tc/ros_jazzy.sif bash -c 'cd /local/data/el23tc/colcon_ws && source install/setup.bash && exec ros2 run control ackermann_to_cmdvel_node.py'",
+      "presentation": {
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Control",
+      "dependsOn": [
+        "Pure_pursuit",
+        "ackerman_to_cmdvel"        
+      ],
+      "dependsOrder": "parallel"
+    },
+    {
+      "label": "Run Full ROS2 System",
+      "dependsOn": [
+        "ROS2 Simulation (skidpad)",
+        "Perception",
+        "Pathfinder",
+        "Perfect SLAM",
+        "rviz2"
+        
+      ],
+      "dependsOrder": "parallel"
+    }
+  ]
+}
