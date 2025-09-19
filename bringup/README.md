@@ -26,11 +26,12 @@ If you are running any of the NEURAL depth modes on a new device, optimization w
 ### VLP-16 Configuration
 **IMPORTANT:** Use `VLP16_hires_db.yaml` instead of `VLP16db.yaml` in the calibration params in `velodyne/launch/velodyne-all-nodes-VLP16-launch.py` since we are using the VLP-16 Hi-Res, which has a narrower VFOV. Otherwise, the LiDAR point cloud would appear angularly stretched vertically compared to the ZED 2i's point cloud, even when perfectly aligned.
 
-- **Config files location:** `velodyne_driver/config/`
-  - `VLP16-velodyne_driver_node-params.yaml` - Driver parameters
-  - `VLP16-velodyne_transform_node-params.yaml` - Transform parameters
-  - `default-velodyne_laserscan_node-params.yaml` - Laser scan parameters
-- **Launch file:** `velodyne/launch/velodyne-all-nodes-VLP16-launch.py`
+- **Config files locations:**
+  - `$(ros2 pkg prefix velodyne_driver --share)/config/VLP16-velodyne_driver_node-params.yaml` - Driver parameters
+  - `$(ros2 pkg prefix velodyne_pointcloud --share)/config/VLP16-velodyne_transform_node-params.yaml` - Transform parameters
+     - `view_width` can be set to any angle (0.0 to 2*pi), and all points outside the specified range will be clipped. 
+  - `$(ros2 pkg prefix velodyne_laserscan --share)/config/default-velodyne_laserscan_node-params.yaml` - Laser scan parameters
+- **Launch file:** `$(ros2 pkg prefix velodyne --share)/launch/velodyne-all-nodes-VLP16-launch.py`
 
     **Note:** If this is the first time setting up the VLP-16 LiDAR on a new device, follow the [ROS Velodyne tutorial](https://wiki.ros.org/velodyne/Tutorials/Getting%20Started%20with%20the%20Velodyne%20VLP16)
 
