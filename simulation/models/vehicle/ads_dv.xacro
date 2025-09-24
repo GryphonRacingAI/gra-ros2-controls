@@ -118,11 +118,11 @@
 
 
         <!-- Sim (Stereo + Depth + Logical) Camera -->
-        <xacro:include filename="$(find simulation)/models/vehicle/sim_camera.xacro" />
+        <xacro:include filename="$(find simulation)/models/sensors/sim_camera.xacro" />
 
 
         <!-- Velodyne -->
-        <xacro:include filename="$(find simulation)/models/vehicle/velodyne.xacro" />
+        <xacro:include filename="$(find simulation)/models/sensors/velodyne.xacro" />
 
 
         <!-- Ackermann Steering Plugin -->
