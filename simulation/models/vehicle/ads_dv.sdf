@@ -568,7 +568,8 @@
       <wheel_separation>1.2</wheel_separation>
       <wheel_radius>0.2575</wheel_radius>
       <topic>cmd_vel</topic>
-      <odom_publish_frequency>600</odom_publish_frequency>
+      <odom_publish_frequency>50</odom_publish_frequency>
+      <!-- Don't use that anymore-->
       <min_velocity>-10.0</min_velocity>
       <!-- the plugin currently prevents steering to the right if this is set to 0 -->
       <max_velocity>30.0</max_velocity>
@@ -585,5 +586,13 @@
     </plugin>
     <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
         </plugin>
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+      <odom_publish_frequency>600</odom_publish_frequency>
+      <odom_topic>ads_dv/odom</odom_topic>
+      <tf_topic>ads_dv/tf</tf_topic>
+      <!-- not the same as /model/ads_dv/tf or model/ads_dv/odom which AckermannSteering publishes. Don't use that, it depends on the wheel joints and not the actual location -->
+    </plugin>
   </model>
 </sdf>
