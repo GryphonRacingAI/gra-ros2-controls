@@ -37,6 +37,8 @@ From: osrf/ros:jazzy-desktop-full
     apt-get install -y python3-colcon-common-extensions
     apt-get install -y python3-rosdep
     rosdep update
+
+
     # Bringup setup
     ## Install Zed 2i packages
  
@@ -58,13 +60,16 @@ From: osrf/ros:jazzy-desktop-full
     cd /local/data/<username>/colcon_ws/src  # THIS MUST BE PRESENT BEFOREHAND
     cd ..
     rosdep update
-    rosdep install --from-path src --ignore-src -r -y # install dependencies
+    rosdep install --from-path src --ignore-src -r -y # install dependencies    
+
 %environment
-    export GZ_SIM_RESOURCE_PATH=/local/data/<username>/colcon_ws/install/simulation/share/
-    source /opt/ros/jazzy/setup.bash
+    export GZ_SIM_RESOURCE_PATH=~/colcon_ws/install/simulation/share/
  
     # CUDA paths
     export PATH=/usr/local/cuda-12.8/bin${PATH:+:${PATH}}
     export LD_LIBRARY_PATH=/usr/local/cuda-12.8/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
  
 %runscript
+    # Make sure to have colcon_ws in your ~
+    source /opt/ros/jazzy/setup.bash
+    source ~/colcon_ws/install/setup.bash 
