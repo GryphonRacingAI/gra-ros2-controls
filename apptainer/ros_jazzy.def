@@ -70,6 +70,6 @@ From: osrf/ros:jazzy-desktop-full
     export LD_LIBRARY_PATH=/usr/local/cuda-12.8/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
  
 %runscript
-    # Make sure to have colcon_ws in your ~
-    source /opt/ros/jazzy/setup.bash
-    source ~/colcon_ws/install/setup.bash 
+
+%labels
+   Prabodh Gyawali

@@ -48,7 +48,7 @@ From: $SETUP_DIR/ros_jazzy.sif
 
 %environment
     # Inherit and ensure base environment is sourced
-    export GZ_SIM_RESOURCE_PATH=/uolstore/home/users/<username>/colcon_ws/install/simulation/share/
+    export GZ_SIM_RESOURCE_PATH=/uolstore/home/users/$USER/colcon_ws/install/simulation/share/
     source /opt/ros/jazzy/setup.bash
     
     # CUDA paths (if needed for your additions)
@@ -58,7 +58,7 @@ From: $SETUP_DIR/ros_jazzy.sif
 %runscript
     # Optional: Customize the default runscript if needed" > $SETUP_DIR/custom.def
 
-apptainer build custom.sif custom.def
+sed -i "s|<username>|g" "$USER"
 
 # Cleanup to not waste disk space
 rm $SETUP_DIR/ros_gz_bridge.py $SETUP_DIR/cuda-keyring_1.1-1_all.deb $SETUP_DIR/ZED_SDK_Ubuntu24_cuda12.8_tensorrt10.9_v5.0.5.zstd.run 
