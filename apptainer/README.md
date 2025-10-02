@@ -25,18 +25,23 @@ When you see the REPL below you are inside your container.
 
 ```Apptainer>```
 >4. Sourcing environment
-- `source /opt/ros/jazzy/setup.bash && source ~/colcon_ws/install/setup.bash`
+```bash
+source /opt/ros/jazzy/setup.bash && source ~/colcon_ws/install/setup.bash
+```
 
 You can create a file in `~` like `.fsairc` with any source or config scripts.
-- `echo "source /opt/ros/jazzy/setup.bash && source ~/colcon_ws/install/setup.bash" > ~/.fsairc`
-
-`source ~/.fsairc` would make sourcing inside your apptainer easier.
+```bash
+echo "source /opt/ros/jazzy/setup.bash && source ~/colcon_ws/install/setup.bash" > ~/.fsairc
+source ~/.fsairc
+```
 
 You can now try running `ros2 launch simulation `
 >5. Creating an alias to enter apptainer efficiently
 
 Make sure you are not inside apptainer
-- `echo "alias fsai='apptainer shell --nv /local/data/\$USER/ros_jazzy.sif'" >> ~/.bashrc`
+```bash
+echo "alias fsai='apptainer shell --nv /local/data/\$USER/ros_jazzy.sif'" >> ~/.bashrc
+```
 
 Now running: `fsai` should allow you to enter your apptainer container 
 ## Creating your Custom Apptainer Container with extra dependencies
@@ -53,10 +58,12 @@ Familiarize yourself with containers if you haven't used containers before, if y
 - make sure to add to the `%files%` 
 - usually done by `apt-get -y <ros-pkg-name>` in the `%runscript%` section of `custom.def`
 
->Build your custom container with: 
-- `apptainer build custom.sif custom.def`
->Enter your custom container wtih:
-- `apptainer shell --nv custom.sif`
+>Build your custom container and enter it with: 
+```bash
+apptainer build custom.sif custom.def
+apptainer shell --nv custom.sif
+```
+Update our `fsai` alias & create your `.fsarc` files for ease.
 ## Accessing University Apptainer containers remotely using SSH with GUI
 Over weekends or out of uni hours you can access your containers using the method below.
 >Get uol vpn
@@ -65,8 +72,10 @@ Over weekends or out of uni hours you can access your containers using the metho
 - `ssh -Y <username>@uol-pc-<id>` make sure to note the `<id>` of local pc where you installed your containers
 
 **Note:** If above doesn't work pc must be remotely powered on by following the steps below:
-- `module add wol`
-- `wol -h <ip> <mac>`
+```bashrc
+module add wol
+wol -h <ip> <mac>
+```
 
 Email the Technical Director: `sc23pg@leeds.ac.uk` for the `ip`, `mac`, and `id` values of 
 
