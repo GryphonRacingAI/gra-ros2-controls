@@ -17,7 +17,7 @@ cd ~/colcon_ws/src/apptainer
 >2. Run the build script to get container environment with dependencies and ros2 jazzy environment.
 ```bash
 chmod u+x setup_apptainer.sh
-. ./setup_apptainer.sh
+./setup_apptainer.sh
 ```
 
 This automaticallys builds the container images and places in `/local/data/$USER` in 15 minutes
@@ -92,6 +92,12 @@ If too many people use the same local pc things may be slow so `sc23pg` may have
 
 Turning on the computer may take a few minutes, then you can `ssh` into it.
 
+## Setting up IPG Carmaker
+> 1. Build `carmaker.def`.
+
+> 2. TODO: Setup source scripts for: `/opt/ipg/
+
+> 3. TODO: License Setup 
 ## Troubleshooting
 **Disk Quota Limit Exceeded**:
 
