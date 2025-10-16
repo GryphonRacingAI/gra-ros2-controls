@@ -262,7 +262,7 @@ void PredictWithCloudNode::processPointsWithBbox(const pcl::PointCloud<pcl::Poin
       // Gazebo simulation convention
       // First, convert from sensor frame (with +X forward) to pseudo-optical frame
       // Optical frame (ROS): X right, Y down, Z forward.
-      // Transformation: p_optical = (-point.z, point.y, point.x)
+      // Transformation: p_optical = (-point.y, -point.z, point.x)
       optical_pt = cv::Point3d(-point.y, -point.z, point.x);
     }
     else

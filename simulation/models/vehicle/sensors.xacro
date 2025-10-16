@@ -1,9 +1,0 @@
-<!-- Specifies the sensors and their poses with respect to base_link -->
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="sensor_params">
-    <xacro:property name="depth_camera_pose" value="0.4865 0 0.671 0 0 0"/>
-    <xacro:property name="depth_camera_size" value="0.0431 0.17525 0.03025"/>
-    <xacro:property name="velodyne_pose" value="0.52 0 0.59946 0 0 0"/>
-    <xacro:property name="velodyne_size" value="0.07 0.05"/>
-  </xacro:macro> 
-</robot>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>fsai_api</name>
+  <version>0.0.0</version>
+  <description>ROS 2 interface and node wrappers for the FS-AI API</description>
+
+  <maintainer email="kenneth.liu.k.h@gmail.com">ugsfume</maintainer>
+  <maintainer email="el22a2s@leeds.ac.uk">A. Shehata</maintainer>
+  <license>TODO</license>
+
+  <!-- Build tools -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Dependencies for nodes -->
+  <depend>rclcpp</depend>
+  <depend>ackermann_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <!-- For generating messages -->
+  <build_depend>rosidl_default_generators</build_depend>
+  <build_export_depend>rosidl_default_runtime</build_export_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <!-- Group for ROS 2 interface packages -->
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <rosidl_interface_packages/>
+  </export>
+  
+</package>

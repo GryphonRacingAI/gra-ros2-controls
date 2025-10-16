@@ -1,12 +1,14 @@
 # Prerequisites
+>**Important:** Building pre-requisites from below is only recommended if you have a powerful enough NVIDIA machine (RTX 2060 or more) and are willing to setup dual boot `Ubuntu 24.04`. If not follow the instructions at [apptainer](https://github.com/GryphonRacingAI/gra-ros2/tree/dev/apptainer) to create a container in the university computers where all the below is done.
+
+
 This package is intended for the following:
 
 - **Ubuntu 24.04**
 - **ROS 2 Jazzy**
 - **Gazebo Harmonic**
 
-
-**Important:** For the most up-to-date installation instructions, please refer to the official pages:  
+>**Important:** For the most up-to-date installation instructions, please refer to the official pages:  
 - [ROS 2 Jazzy Installation Guide](https://docs.ros.org/en/jazzy/Installation.html)  
 - [Gazebo Harmonic Installation Guide](https://gazebosim.org/docs/harmonic/install_ubuntu/)
 

@@ -7,15 +7,54 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 find_package(ros_gz REQUIRED)
+find_package(ros_gz_interfaces REQUIRED)
+find_package(common_msgs REQUIRED)
 
+# Add executables
+add_executable(perfect_perception src/perfect_perception.cpp)
+ament_target_dependencies(perfect_perception
+  rclcpp
+  std_msgs
+  geometry_msgs
+  visualization_msgs
+  tf2_ros
+  tf2_geometry_msgs
+  ros_gz_interfaces
+  common_msgs
+)
+
+add_executable(perfect_SLAM src/perfect_SLAM.cpp)
+ament_target_dependencies(perfect_SLAM
+  rclcpp
+  std_msgs
+  geometry_msgs
+  nav_msgs
+  visualization_msgs
+  tf2_ros
+  tf2_geometry_msgs
+  ros_gz_interfaces
+  common_msgs
+)
+
+# Install executables
 install(TARGETS
-  DESTINATION lib/${PROJECT_NAME})
+  perfect_perception
+  perfect_SLAM
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Install directories
+install(DIRECTORY config launch models
+  DESTINATION share/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -28,9 +67,5 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
-
-install( DIRECTORY config launch models
-  DESTINATION share/${PROJECT_NAME}
-)
 
 ament_package()

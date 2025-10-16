@@ -1,18 +1,30 @@
 <?xml version="1.0" ?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="VLP-16">
+<sdf version='1.7' xmlns:xacro="http://www.ros.org/wiki/xacro" name="VLP-16">
+
     <!-- Velodyne -->
-    <link name="velodyne">
-        <visual name="visual">
+    <link name='velodyne'>
+        <pose relative_to='base_to_velodyne'>0 0 0 0 0 0</pose>
+        <inertial>
+            <pose>0 0 0 0 0 0</pose>
+            <mass>0.001</mass>
+            <inertia>
+                <ixx>0.001</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>0.001</iyy>
+                <iyz>0</iyz>
+                <izz>0.001</izz>
+            </inertia>
+        </inertial>
+        <visual name='velodyne_visual'>
+            <pose>0 0 0 0 0 0</pose>
             <geometry>
-                <cylinder length="0.07" radius="0.05"/>
+                <cylinder>
+                    <radius>0.05</radius>
+                    <length>0.07</length>
+                </cylinder>
             </geometry>
         </visual>
-        <inertial>
-            <mass value="0.001"/>
-            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
-        </inertial>
-    </link>
-    <gazebo reference="velodyne">
         <sensor name='VLP-16' type='gpu_lidar'>
             <gz_frame_id>velodyne</gz_frame_id> <!-- Change to frame_id when sdformat_urdf's parser supports sdf spec 1.12 -->
             <topic>velodyne</topic>
@@ -41,5 +53,6 @@
             <always_on>1</always_on>
             <visualize>true</visualize>
         </sensor>
-    </gazebo>
-</robot>
+    </link>
+
+</sdf>

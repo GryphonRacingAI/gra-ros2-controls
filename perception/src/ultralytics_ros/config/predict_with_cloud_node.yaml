@@ -29,7 +29,7 @@ predict_with_cloud_node:
     camera_info_topic: "/zed/zed_node/left/camera_info"
 
     lidar_topic: "/zed/zed_node/point_cloud/cloud_registered"  # ZED2I
-    lidar_topic: "/velodyne_points"                            # LIDAR
+    # lidar_topic: "/velodyne_points"                            # LIDAR
 
     gz_camera_convention: False 
 
@@ -38,7 +38,7 @@ predict_with_cloud_node:
     # camera_info_topic: "/zed2i/depth_camera/camera_info"
 
     # lidar_topic: "/zed2i/depth_camera/points"                  # ZED2I    
-    # lidar_topic: "/velodyne_points"                            # LIDAR
+    # # lidar_topic: "/velodyne_points"                            # LIDAR
 
-    # set to true ONLY if using sim (Gazebo)
+    # # set to true ONLY if using sim (Gazebo)
     # gz_camera_convention: True 

@@ -1,13 +1,10 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
+<sdf version='1.7' xmlns:xacro="http://ros.org/wiki/xacro">
+
     <!-- Macro to define a cone -->
     <xacro:macro name="cone" params="name type pose">
     <model name="${name}">
         <static>true</static>
-        <plugin name="gz::sim::systems::PosePublisher" filename="gz-sim-pose-publisher-system">
-            <use_pose_vector_msg>true</use_pose_vector_msg>
-            <publish_model_pose>true</publish_model_pose>
-        </plugin>
         <pose>${pose}</pose>
         <link name="${name}_link">
             <visual name="visual">
@@ -79,4 +76,5 @@
         </link>
     </model>
     </xacro:macro>
-</robot>
+
+</sdf>
