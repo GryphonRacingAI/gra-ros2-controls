@@ -8,16 +8,17 @@ Follow each bullet point in steps below.
 
 If you are using your own laptop go to [this section](#accessing-university-apptainer-containers-remotely-using-ssh-with-gui) to setup VPN and remotely access Bragg Computers.
 
-Clone `gra-ros2` into dev branch
+Clone `gra-ros2` into dev branch and pull all git submodules
 ```bash
 mkdir -p ~/colcon_ws/src
 git clone -b dev https://github.com/GryphonRacingAI/gra-ros2.git ~/colcon_ws/src
 cd ~/colcon_ws/src/apptainer
+cd src; git submodule update --init --recursive; cd ..
 ```
 >2. Run the build script to get container environment with dependencies and ros2 jazzy environment.
 ```bash
 chmod u+x setup_apptainer.sh
-. ./setup_apptainer.sh
+sh setup_apptainer.sh
 ```
 
 This automaticallys builds the container images and places in `/local/data/$USER` in 15 minutes
@@ -29,8 +30,14 @@ apptainer shell --nv /local/data/$USER/ros_jazzy.sif
 ```
 When you see the REPL below you are inside your container.
 
+>4. Building your gra-ros2 with colcon
+```bash
+cd ~/colcon_ws
+colcon build --symlink-install
+```
+
 ```Apptainer>```
->4. Sourcing environment
+>5. Sourcing environment
 ```bash
 source /opt/ros/jazzy/setup.bash && source ~/colcon_ws/install/setup.bash
 ```
@@ -42,7 +49,7 @@ source ~/.fsairc
 ```
 
 You can now try running `ros2 launch simulation `
->5. Creating an alias to enter apptainer efficiently
+>6. Creating an alias to enter apptainer efficiently
 
 Make sure you are not inside apptainer
 ```bash
@@ -92,6 +99,12 @@ If too many people use the same local pc things may be slow so `sc23pg` may have
 
 Turning on the computer may take a few minutes, then you can `ssh` into it.
 
+## Setting up IPG Carmaker
+> 1. Build `carmaker.def`.
+
+> 2. TODO: Setup source scripts for: `/opt/ipg/
+
+> 3. TODO: License Setup 
 ## Troubleshooting
 **Disk Quota Limit Exceeded**:
 
