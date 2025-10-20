@@ -2,7 +2,7 @@ Bootstrap: docker
 From: osrf/ros:humble-desktop-full
 %files 
     # Obtain files from 
-    CD-CarMakerOffice-linux-12.0.4 /CD 
+    CD-CarMakerOffice-linux-14.0 /CD 
 %post
     
     apt-get -y update
@@ -18,10 +18,15 @@ From: osrf/ros:humble-desktop-full
     # Carmaker Deps
     export DEBIAN_FRONTEND=noninteractive
     echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
-    # apt-get install -y --reinstall ttf-mscorefonts-installer
+    apt-get install -y --reinstall ttf-mscorefonts-installer
     dpkg-reconfigure -f noninteractive ttf-mscorefonts-installer
 
     cd CD
     chmod +x ipg-install
     ./ipg-install -batch -ipghome /opt/ipg || echo "Install warning: Check logs for license/package issues"
 
+    # make sure Licenses is moved to CD
+    mv Licenses /opt/ipg/etc
+ 
+    cd /opt/ros
+    ln -sfn humble ros2
