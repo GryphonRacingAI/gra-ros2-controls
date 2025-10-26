@@ -56,14 +56,14 @@ verbosity | sets the Gazebo console output verbosity | 0 - 4| `1`
 ros2 run simulation perfect_perception --ros-args -p use_sim_time:=true
 ```
 
-[insert node graph]
+<img width="1523" height="342" alt="perfect_perception" src="https://github.com/user-attachments/assets/61144fb0-c627-45b5-877f-c11864accfd0" />
 
 ### Run Perfect SLAM
 ```bash
 ros2 run simulation perfect_SLAM --ros-args -p use_sim_time:=true
 ```
 
-[insert node graph]
+<img width="1525" height="396" alt="perfect_SLAM" src="https://github.com/user-attachments/assets/560ce03d-fa46-4be7-990e-6f47c514d203" />
 
 ## Interface
 
