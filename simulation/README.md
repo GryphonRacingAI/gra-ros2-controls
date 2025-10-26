@@ -72,6 +72,8 @@ ros2 run simulation perfect_SLAM --ros-args -p use_sim_time:=true
 | `perfect_SLAM` | `/logical_camera` (ros_gz_interfaces/msg/LogicalCameraImage) | `/perfect_cone_map` (common_msgs/msg/ConeArray)<br>`/perfect_cone_map_markers` (visualization_msgs/msg/MarkerArray)<br>`/perfect_odom` (nav_msgs/msg/Odometry) | Perfect SLAM simulation node |
 | `perfect_perception` | `/logical_camera` (ros_gz_interfaces/msg/LogicalCameraImage) | `/perfect_cone_array` (common_msgs/msg/ConeArray)<br>`/perfect_cone_array_markers` (visualization_msgs/msg/MarkerArray) | Perfect perception simulation node |
 
+**Note:** both rely on TF to get some ground truth data (vehicle pose, cone poses, etc.), as this is how it is currently bridged from Gazebo to ROS.
+
 ## ROS-Gazebo Bridge
 
 **Transports and converts topics to/from ROS/GZ**
