@@ -278,6 +278,19 @@ def generate_launch_description():
                 '/ros_gz_bridge.launch.py']),
         )
 
+    ackermann_to_speed_steer_node = Node(
+        package='simulation',
+        executable='ackermann_to_speed_steer',
+        name='ackermann_to_speed_steer_node',
+        output='screen',
+        parameters=[
+            {'speed_cmd_topic': '/speed_cmd'},
+            {'steer_cmd_topic': '/steer_angle_cmd'},
+            {'steer_angle_topic': '/steer_angle'},
+            {'ackermann_cmd_topic': '/ackermann_cmd'},
+            {'joint_states_topic': '/joint_states'}
+        ]
+    )
 
     return LaunchDescription([
         event_launch_arg,
@@ -297,5 +310,6 @@ def generate_launch_description():
         spawn_vehicle,
         robot_state_publisher,
         spawn_pose_publisher,
-        ros_gz_bridge
+        ros_gz_bridge,
+        ackermann_to_speed_steer_node
     ])

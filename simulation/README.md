@@ -51,6 +51,27 @@ model_file | path to the vehicle model sdf file | Any valid path to vehicle sdf 
 name | sets the vehicle name in Gazebo | Any valid string|`ads_dv`
 verbosity | sets the Gazebo console output verbosity | 0 - 4| `1`
 
+### Vehicle Control Example
+
+Publish commands to /ackermann_cmd (ackermann_msgs/msg/AckermannDrive):
+- steering_angle (rad)
+- speed (m/s)
+
+The ackermann_to_speed_steer node will handle conversion to separate speed and steer commands, which will be bridged to Gazebo and applied by the JointController and AckermannSteering plugins, respectively.
+
+The same node also computes and publishes the (approximate) bicycle-model steering angle on the ROS-side from the joint angles.
+
+Quick examples:
+```bash
+# one-off ackermann command
+ros2 topic pub /ackermann_cmd ackermann_msgs/msg/AckermannDrive "{steering_angle: 0.0, speed: 1.0}" --once
+```
+
+```bash
+# view current measured steering angle
+ros2 topic echo /steer_angle
+```
+
 ### Run Perfect Perception
 ```bash
 ros2 run simulation perfect_perception --ros-args -p use_sim_time:=true
@@ -71,8 +92,9 @@ ros2 run simulation perfect_SLAM --ros-args -p use_sim_time:=true
 |------|--------|---------|-------------|
 | `perfect_SLAM` | `/logical_camera` (ros_gz_interfaces/msg/LogicalCameraImage) | `/perfect_cone_map` (common_msgs/msg/ConeArray)<br>`/perfect_cone_map_markers` (visualization_msgs/msg/MarkerArray)<br>`/perfect_odom` (nav_msgs/msg/Odometry) | Perfect SLAM simulation node |
 | `perfect_perception` | `/logical_camera` (ros_gz_interfaces/msg/LogicalCameraImage) | `/perfect_cone_array` (common_msgs/msg/ConeArray)<br>`/perfect_cone_array_markers` (visualization_msgs/msg/MarkerArray) | Perfect perception simulation node |
+| `ackermann_to_speed_steer` | `/ackermann_cmd` (ackermann_msgs/msg/AckermannDrive)<br>`/joint_states` (sensor_msgs/msg/JointState) | `/speed_cmd` (std_msgs/msg/Float64)<br>`/steer_angle_cmd` (std_msgs/msg/Float64)<br>`/steer_angle` (std_msgs/msg/Float64) | Converts Ackermann commands to speed and steering commands, and publishes current steering angle
 
-**Note:** both rely on TF to get some ground truth data (vehicle pose, cone poses, etc.), as this is how it is currently bridged from Gazebo to ROS.
+**Note:** both perfect_perception and perfect_SLAM rely on TF to get some ground truth data (vehicle pose, cone poses, etc.), as this is how it is currently bridged from Gazebo to ROS.
 
 ## ROS-Gazebo Bridge
 

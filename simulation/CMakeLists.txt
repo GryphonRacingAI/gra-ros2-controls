@@ -17,6 +17,8 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(ros_gz REQUIRED)
 find_package(ros_gz_interfaces REQUIRED)
 find_package(common_msgs REQUIRED)
+find_package(ackermann_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 # Add executables
 add_executable(perfect_perception src/perfect_perception.cpp)
@@ -44,10 +46,19 @@ ament_target_dependencies(perfect_SLAM
   common_msgs
 )
 
+add_executable(ackermann_to_speed_steer src/ackermann_to_speed_steer.cpp)
+ament_target_dependencies(ackermann_to_speed_steer
+  rclcpp
+  std_msgs
+  ackermann_msgs
+  sensor_msgs
+)
+
 # Install executables
 install(TARGETS
   perfect_perception
   perfect_SLAM
+  ackermann_to_speed_steer
   DESTINATION lib/${PROJECT_NAME}
 )
 
