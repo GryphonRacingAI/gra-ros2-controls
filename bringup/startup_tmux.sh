@@ -3,6 +3,7 @@ LOGFILE=$HOME/startup_tmux.log
 echo "[$(date)] tmux startup script starting..." >> "$LOGFILE"
 
 # Log Secure Boot status (silently fail if mokutil is not available or fails)
+# If Secure Boot is enabled, certain Nvidia drivers/modules may not load
 echo "[$(date)] Secure Boot status:" >> "$LOGFILE"
 mokutil --sb-state >> "$LOGFILE" 2>/dev/null || echo "[$(date)] mokutil not available or failed to run." >> "$LOGFILE"
 
