@@ -20,6 +20,14 @@ From: osrf/ros:humble-desktop-full
     echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections
     apt-get install -y --reinstall ttf-mscorefonts-installer
     dpkg-reconfigure -f noninteractive ttf-mscorefonts-installer
+  
+    # Graphics Drivers 
+    apt install -y evince
+    apt install -y software-properties-common
+    add-apt-repository -y ppa:graphics-drivers/ppa
+    apt update -y
+    export DEBIAN_FRONTEND=noninteractive   
+    apt install -y nvidia-driver-550
 
     cd CD
     chmod +x ipg-install
