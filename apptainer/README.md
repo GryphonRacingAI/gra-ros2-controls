@@ -12,8 +12,8 @@ Clone `gra-ros2` into dev branch and pull all git submodules
 ```bash
 mkdir -p ~/colcon_ws/src
 git clone -b dev https://github.com/GryphonRacingAI/gra-ros2.git ~/colcon_ws/src
+cd src; git submodule update --init --recursive
 cd ~/colcon_ws/src/apptainer
-cd src; git submodule update --init --recursive; cd ..
 ```
 >2. Run the build script to get container environment with dependencies and ros2 jazzy environment.
 ```bash
@@ -33,18 +33,21 @@ When you see the REPL below you are inside your container.
 >4. Building your gra-ros2 with colcon
 ```bash
 cd ~/colcon_ws
-colcon build --symlink-install
+source /opt/ros/jazzy/setup.bash
+colcon build --symlink-install --packages-skip bringup
 ```
 
 ```Apptainer>```
 >5. Sourcing environment
 ```bash
-source /opt/ros/jazzy/setup.bash && source ~/colcon_ws/install/setup.bash
+source ~/colcon_ws/install/setup.bash
 ```
+
+If you are a ROS2 noob everything is setup for you to go through the [docs](docs.ros.org/en/jazzy).
 
 You can create a file in `~` like `.fsairc` with any source or config scripts.
 ```bash
-echo "source /opt/ros/jazzy/setup.bash && source ~/colcon_ws/install/setup.bash" > ~/.fsairc
+echo "source /opt/ros/jazzy/setup.bash && source ~/colcon_ws/install/setup.bash && export GZ_SIM_RESOURCE_PATH=~/colcon_ws/install/simulation/share/" > ~/.fsairc
 source ~/.fsairc
 ```
 
@@ -53,7 +56,7 @@ You can now try running `ros2 launch simulation `
 
 Make sure you are not inside apptainer
 ```bash
-echo "alias fsai='apptainer shell --nv /local/data/\$USER/ros_jazzy.sif'" >> ~/.bashrc
+echo "alias fsai='apptainer shell --nv /local/data/$USER/ros_jazzy.sif'" >> ~/.bashrc
 ```
 
 Now running: `fsai` should allow you to enter your apptainer container 
@@ -93,18 +96,15 @@ wol -h <ip> <mac>
 
 > Continue setting things up by following the instructions [above](#ros-jazzy-apptainer-setup)
 
-Email or message on Teams the Technical Director: `sc23pg@leeds.ac.uk` for the values of `ip`, `mac`, `id`, `<server-url>` as I am not sure I can share this in a public repo.
+Email or message on Teams the Technical Director: `sc23pg@leeds.ac.uk` for the values of `<server-url>` as I am not sure I can share this in a public repo.
 
-If too many people use the same local pc things may be slow so `sc23pg` may have to request for more: `ip`, `mac` values for a pc with `id` in Bragg Cluster.
+You can find your ip and mac using: `ip addr show` and hostname using `hostname`.
 
 Turning on the computer may take a few minutes, then you can `ssh` into it.
 
 ## Setting up IPG Carmaker
-> 1. Build `carmaker.def`.
+Checkout out [Carmaker setup](./carmaker/README.md)
 
-> 2. TODO: Setup source scripts for: `/opt/ipg/
-
-> 3. TODO: License Setup 
 ## Troubleshooting
 **Disk Quota Limit Exceeded**:
 

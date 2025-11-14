@@ -28,6 +28,12 @@ From: osrf/ros:jazzy-desktop-full
  
     cp /local/data/<username>/ros_gz_bridge.py /opt/ros/jazzy/lib/python3.12/site-packages/ros_gz_bridge/actions/ros_gz_bridge.py
  
+    # NVIDIA drivers
+    apt install -y software-properties-common
+    add-apt-repository -y ppa:graphics-drivers/ppa
+    apt update -y
+    export DEBIAN_FRONTEND=noninteractive   
+    apt install -y nvidia-driver-550
  
     curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
