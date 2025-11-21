@@ -49,6 +49,12 @@ install(TARGETS
     DESTINATION lib/${PROJECT_NAME}
 )
 
+# Install Python scripts
+install(PROGRAMS
+    scripts/wheel_speed_controller.py
+    DESTINATION lib/${PROJECT_NAME}
+)
+
 # Export rosidl runtime dependencies
 ament_export_dependencies(rclcpp ackermann_msgs std_msgs rosidl_default_runtime)
 

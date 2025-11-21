@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # This node counts the laps by drawing a line connecting large orange cones and detecting cross product sign change
-# Updated to use track_map in odom frame for consistent coordinate system
+# Updated to use cone_array in odom frame for consistent coordinate system
 
 import rclpy
 from rclpy.node import Node
@@ -18,7 +18,7 @@ class LapCounter(Node):
         # Subscribers
         self.cone_sub = self.create_subscription(
             ConeArray,
-            '/track_map',  # track_map is in odom frame
+            '/cone_array',  # cone_array is in odom frame
             self.cone_callback,
             10
         )

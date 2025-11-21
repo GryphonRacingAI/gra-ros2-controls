@@ -44,7 +44,45 @@ Refer to the individual config files for detailed parameter descriptions and def
    ros2 launch bringup sensor_bringup.launch.py
    ```
 
+## Startup script setup
 
+Steps to run startup_tmux.sh on boot:
+
+1. Make the script executable
+```bash
+chmod +x ~/colcon_ws/src/bringup/startup_tmux.sh
+```
+
+2. Create systemd service `/etc/systemd/system/startup_tmux.service` (replace USERNAME with your username)
+```ini
+[Unit]
+Description=Run tmux startup script at boot
+After=graphical.target network.target
+Wants=graphical.target
+
+[Service]
+Type=simple
+User=USERNAME
+ExecStart=/home/USERNAME/colcon_ws/src/bringup/startup_tmux.sh
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/user/.Xauthority
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical.target
+```
+
+3. Enable and start
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable startup_tmux.service
+sudo systemctl start startup_tmux.service
+```
+
+4. Verify (now and after rebooting)
+```bash
+tmux attach -t ros_startup
+```
 
 ## Sensors
 
